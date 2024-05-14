@@ -1,4 +1,4 @@
-package ru.site.application.views.профиль;
+package ru.site.application.views.profile;
 
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
@@ -24,9 +24,9 @@ import ru.site.application.views.MainLayout;
 @Route(value = "person-form", layout = MainLayout.class)
 @RolesAllowed("USER")
 @Uses(Icon.class)
-public class ПрофильView extends Composite<VerticalLayout> {
+public class ProfileView extends Composite<VerticalLayout> {
 
-    public ПрофильView() {
+    public ProfileView() {
         VerticalLayout layoutColumn2 = new VerticalLayout();
         H3 h3 = new H3();
         FormLayout formLayout2Col = new FormLayout();

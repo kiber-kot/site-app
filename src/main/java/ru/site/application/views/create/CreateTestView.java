@@ -1,4 +1,4 @@
-package ru.site.application.views.созданиетеста;
+package ru.site.application.views.create;
 
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
@@ -22,9 +22,9 @@ import ru.site.application.views.MainLayout;
 @Route(value = "create-test", layout = MainLayout.class)
 @RolesAllowed("ADMIN")
 @Uses(Icon.class)
-public class СозданиетестаView extends Composite<VerticalLayout> {
+public class CreateTestView extends Composite<VerticalLayout> {
 
-    public СозданиетестаView() {
+    public CreateTestView() {
         Tabs tabs = new Tabs();
         TextArea textArea = new TextArea();
         ComboBox comboBox = new ComboBox();

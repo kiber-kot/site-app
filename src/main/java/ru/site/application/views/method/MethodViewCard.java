@@ -1,4 +1,4 @@
-package ru.site.application.views.методики;
+package ru.site.application.views.method;
 
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
@@ -19,9 +19,9 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Padding;
 import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 import com.vaadin.flow.theme.lumo.LumoUtility.Width;
 
-public class МетодикиViewCard extends ListItem {
+public class MethodViewCard extends ListItem {
 
-    public МетодикиViewCard(String text, String url) {
+    public MethodViewCard(String text, String url) {
         addClassNames(Background.CONTRAST_5, Display.FLEX, FlexDirection.COLUMN, AlignItems.START, Padding.MEDIUM,
                 BorderRadius.LARGE);
 

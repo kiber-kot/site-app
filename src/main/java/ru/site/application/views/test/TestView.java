@@ -1,4 +1,4 @@
-package ru.site.application.views.тест;
+package ru.site.application.views.test;
 
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.button.Button;
@@ -21,9 +21,9 @@ import ru.site.application.views.MainLayout;
 @Route(value = "test", layout = MainLayout.class)
 @AnonymousAllowed
 @Uses(Icon.class)
-public class ТестView extends Composite<VerticalLayout> {
+public class TestView extends Composite<VerticalLayout> {
 
-    public ТестView() {
+    public TestView() {
         Tabs tabs = new Tabs();
         CheckboxGroup checkboxGroup = new CheckboxGroup();
         HorizontalLayout layoutRow = new HorizontalLayout();

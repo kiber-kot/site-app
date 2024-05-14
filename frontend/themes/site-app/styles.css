@@ -12,5 +12,23 @@
     }
 
     [theme~="dark"] {
-
+      --lumo-base-color: hsl(44, 80%, 12%);
+      --lumo-shade-5pct: hsla(214, 100%, 99%, 0.05);
+      --lumo-shade-10pct: hsla(214, 100%, 99%, 0.1);
+      --lumo-shade-20pct: hsla(214, 100%, 99%, 0.2);
+      --lumo-shade-30pct: hsla(214, 100%, 99%, 0.3);
+      --lumo-shade-40pct: hsla(214, 100%, 99%, 0.4);
+      --lumo-shade-50pct: hsla(214, 100%, 99%, 0.5);
+      --lumo-shade-60pct: hsla(214, 100%, 99%, 0.6);
+      --lumo-shade-70pct: hsla(214, 100%, 99%, 0.7);
+      --lumo-shade-80pct: hsla(214, 100%, 99%, 0.8);
+      --lumo-shade-90pct: hsla(214, 100%, 99%, 0.9);
+      --lumo-primary-color-50pct: hsla(35, 100%, 71%, 0.5);
+      --lumo-primary-color-10pct: hsla(35, 100%, 71%, 0.1);
+      --lumo-shade: hsl(214, 100%, 99%);
+      --lumo-primary-color: hsl(35, 100%, 71%);
+      --lumo-primary-text-color: hsl(37, 100%, 70%);
     }
+        [theme~="light"] {
+
+        }

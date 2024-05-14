@@ -11,6 +11,7 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Header;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
@@ -22,15 +23,17 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 import java.io.ByteArrayInputStream;
 import java.util.Optional;
 import org.vaadin.lineawesome.LineAwesomeIcon;
+import ru.site.application.data.SessionRepository;
 import ru.site.application.data.User;
 import ru.site.application.security.AuthenticatedUser;
 import ru.site.application.views.checkoutform.CheckoutFormView;
 import ru.site.application.views.crud.CRUDView;
-import ru.site.application.views.методики.МетодикиView;
-import ru.site.application.views.поисковик.ПоисковикView;
-import ru.site.application.views.профиль.ПрофильView;
-import ru.site.application.views.созданиетеста.СозданиетестаView;
-import ru.site.application.views.тест.ТестView;
+import ru.site.application.views.method.MethodView;
+import ru.site.application.views.theme.ThemeView;
+import ru.site.application.views.searcher.SearcherView;
+import ru.site.application.views.profile.ProfileView;
+import ru.site.application.views.create.CreateTestView;
+import ru.site.application.views.test.TestView;
 
 /**
  * The main view is a top-level placeholder for other views.
@@ -42,9 +45,15 @@ public class MainLayout extends AppLayout {
     private AuthenticatedUser authenticatedUser;
     private AccessAnnotationChecker accessChecker;
 
-    public MainLayout(AuthenticatedUser authenticatedUser, AccessAnnotationChecker accessChecker) {
+    private SessionRepository sessionRepository;
+    private ThemeView themeView;
+
+    public MainLayout(AuthenticatedUser authenticatedUser, AccessAnnotationChecker accessChecker,
+                      SessionRepository sessionRepository, ThemeView themeView) {
         this.authenticatedUser = authenticatedUser;
         this.accessChecker = accessChecker;
+        this.sessionRepository = sessionRepository;
+        this.themeView = themeView;
 
         setPrimarySection(Section.DRAWER);
         addDrawerContent();
@@ -67,28 +76,29 @@ public class MainLayout extends AppLayout {
         Header header = new Header(appName);
 
         Scroller scroller = new Scroller(createNavigation());
+        Button sessionIcon = themeView.getButtonChangeTheme();
 
-        addToDrawer(header, scroller, createFooter());
+        addToDrawer(header, scroller, createFooter(), sessionIcon);
     }
 
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
 
-        if (accessChecker.hasAccess(МетодикиView.class)) {
-            nav.addItem(new SideNavItem("Методики", МетодикиView.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
+        if (accessChecker.hasAccess(MethodView.class)) {
+            nav.addItem(new SideNavItem("Методики", MethodView.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
 
         }
-        if (accessChecker.hasAccess(СозданиетестаView.class)) {
-            nav.addItem(new SideNavItem("Создание теста", СозданиетестаView.class,
+        if (accessChecker.hasAccess(CreateTestView.class)) {
+            nav.addItem(new SideNavItem("Создание теста", CreateTestView.class,
                     LineAwesomeIcon.PENCIL_RULER_SOLID.create()));
 
         }
-        if (accessChecker.hasAccess(ТестView.class)) {
-            nav.addItem(new SideNavItem("Тест", ТестView.class, LineAwesomeIcon.PENCIL_RULER_SOLID.create()));
+        if (accessChecker.hasAccess(TestView.class)) {
+            nav.addItem(new SideNavItem("Тест", TestView.class, LineAwesomeIcon.PENCIL_RULER_SOLID.create()));
 
         }
-        if (accessChecker.hasAccess(ПрофильView.class)) {
-            nav.addItem(new SideNavItem("Профиль", ПрофильView.class, LineAwesomeIcon.USER.create()));
+        if (accessChecker.hasAccess(ProfileView.class)) {
+            nav.addItem(new SideNavItem("Профиль", ProfileView.class, LineAwesomeIcon.USER.create()));
 
         }
         if (accessChecker.hasAccess(CheckoutFormView.class)) {
@@ -99,8 +109,8 @@ public class MainLayout extends AppLayout {
             nav.addItem(new SideNavItem("CRUD", CRUDView.class, LineAwesomeIcon.COLUMNS_SOLID.create()));
 
         }
-        if (accessChecker.hasAccess(ПоисковикView.class)) {
-            nav.addItem(new SideNavItem("Поисковик", ПоисковикView.class, LineAwesomeIcon.FILTER_SOLID.create()));
+        if (accessChecker.hasAccess(SearcherView.class)) {
+            nav.addItem(new SideNavItem("Поисковик", SearcherView.class, LineAwesomeIcon.FILTER_SOLID.create()));
 
         }
 

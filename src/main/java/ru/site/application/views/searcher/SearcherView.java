@@ -1,4 +1,4 @@
-package ru.site.application.views.поисковик;
+package ru.site.application.views.searcher;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Text;
@@ -40,14 +40,14 @@ import ru.site.application.views.MainLayout;
 @Route(value = "grid-with-filters", layout = MainLayout.class)
 @AnonymousAllowed
 @Uses(Icon.class)
-public class ПоисковикView extends Div {
+public class SearcherView extends Div {
 
     private Grid<SamplePerson> grid;
 
     private Filters filters;
     private final SamplePersonService samplePersonService;
 
-    public ПоисковикView(SamplePersonService SamplePersonService) {
+    public SearcherView(SamplePersonService SamplePersonService) {
         this.samplePersonService = SamplePersonService;
         setSizeFull();
         addClassNames("поисковик-view");
